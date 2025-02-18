@@ -6,14 +6,15 @@ import { CreerSaeComponent } from './creer-sae/creer-sae.component'; // Import d
 
 @NgModule({
   declarations: [
-    AppComponent,
-    CreerSaeComponent
+
   ],
   imports: [
     BrowserModule,
-    ReactiveFormsModule 
+    ReactiveFormsModule,
+    CreerSaeComponent,
+    AppComponent
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: []
 })
 export class AppModule { }

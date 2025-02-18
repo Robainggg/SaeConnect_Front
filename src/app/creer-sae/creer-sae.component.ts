@@ -1,11 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 
 
 @Component({
   selector: 'app-creer-sae',
-  imports: [],
+  imports: [
+    ReactiveFormsModule
+  ],
   templateUrl: './creer-sae.component.html',
+  standalone: true,
   styleUrl: './creer-sae.component.scss'
 })
 export class CreerSaeComponent implements OnInit {
