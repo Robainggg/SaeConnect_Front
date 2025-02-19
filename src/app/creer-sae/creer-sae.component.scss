@@ -1,0 +1,76 @@
+form {
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 50%;
+  margin: 80px auto 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+form div {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background: #444;
+  color: white;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  background: #555;
+}
+
+small {
+  color: #e74c3c;
+}
+
+button {
+  background-color: #f39c12;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:disabled {
+  background-color: #777;
+  cursor: not-allowed;
+}
+
+button:hover:not(:disabled) {
+  background-color: #e67e22;
+  transform: scale(1.05);
+}
+
+button:active:not(:disabled) {
+  transform: scale(0.95);
+}
+
+select {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background: #444;
+  color: white;
+}
+
+select:focus {
+  outline: none;
+  background: #555;
+}

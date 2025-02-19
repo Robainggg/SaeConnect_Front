@@ -1,37 +1,43 @@
-<h2>Créer une SAE</h2>
+  <h2>Créer une SAE</h2>
 
-<form [formGroup]="saeForm" (ngSubmit)="onSubmit()">
-  <div>
-    <label>Nom :</label>
-    <input formControlName="nom" type="text">
-    <div *ngIf="saeForm.get('nom')?.invalid && saeForm.get('nom')?.touched">
-      <small>Ce champ est requis</small>
+  <form [formGroup]="saeForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label>Nom :</label>
+      <input formControlName="nom" type="text">
+      <div *ngIf="saeForm.get('nom')?.invalid && saeForm.get('nom')?.touched">
+        <small>Ce champ est requis</small>
+      </div>
     </div>
-  </div>
 
-  <div>
-    <label>Sujet :</label>
-    <textarea formControlName="sujet"></textarea>
-    <div *ngIf="saeForm.get('sujet')?.invalid && saeForm.get('sujet')?.touched">
-      <small>Ce champ est requis</small>
+    <div>
+      <label>Sujet :</label>
+      <textarea formControlName="sujet"></textarea>
+      @if(saeForm.get('sujet')?.invalid && saeForm.get('sujet')?.touched){
+        <div>
+          <small>Ce champ est requis</small>
+        </div>
+      }
     </div>
-  </div>
 
-  <div>
-    <label>Responsable ID :</label>
-    <input formControlName="responsable_id" type="number">
-    <div *ngIf="saeForm.get('responsable_id')?.invalid && saeForm.get('responsable_id')?.touched">
-      <small>Veuillez entrer un ID valide</small>
+    <div>
+      <label>Responsable :</label>
+      <select formControlName="responsable_id">
+        <option *ngFor="let responsable of responsables" [value]="responsable.id">
+          {{ responsable.firstname}} {{responsable.lastname }}
+        </option>
+      </select>
+      <div *ngIf="saeForm.get('responsable_id')?.invalid && saeForm.get('responsable_id')?.touched">
+        <small>Veuillez entrer un ID valide</small>
+      </div>
     </div>
-  </div>
 
-  <div>
-    <label>Semestre ID :</label>
-    <input formControlName="semestre_id" type="number">
-    <div *ngIf="saeForm.get('semestre_id')?.invalid && saeForm.get('semestre_id')?.touched">
-      <small>Veuillez entrer un ID valide</small>
+    <div>
+      <label>Semestre :</label>
+      <input formControlName="semestre_id" type="number">
+      <div *ngIf="saeForm.get('semestre_id')?.invalid && saeForm.get('semestre_id')?.touched">
+        <small>Veuillez entrer un ID valide</small>
+      </div>
     </div>
-  </div>
 
-  <button type="submit" [disabled]="saeForm.invalid">Créer SAE</button>
-</form>
+    <button type="submit" [disabled]="saeForm.invalid">Créer SAE</button>
+  </form>
