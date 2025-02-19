@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import {UserServiceService} from "../services/user-service.service";
 import {NgForOf, NgIf} from "@angular/common";
+import {SemestreService} from "../services/semestre.service";
 
 
 @Component({
@@ -18,8 +19,9 @@ import {NgForOf, NgIf} from "@angular/common";
 export class CreerSaeComponent implements OnInit {
   saeForm: FormGroup;
   responsables :any;
+  semestres: any;
 
-  constructor(private fb: FormBuilder, private userService: UserServiceService) {
+  constructor(private fb: FormBuilder, private userService: UserServiceService, private semestreService: SemestreService) {
     this.saeForm = this.fb.group({
       nom: ['', Validators.required],
       sujet: ['', Validators.required],
@@ -27,6 +29,8 @@ export class CreerSaeComponent implements OnInit {
       semestre_id: ['', [Validators.required, Validators.pattern("^[0-9]*$")]]
     });
     userService.getResponsables().subscribe(data => this.responsables = data);
+    semestreService.getSemestres().subscribe(data => this.semestres = data);
+
     console.log("test:", this.responsables)
   }
 

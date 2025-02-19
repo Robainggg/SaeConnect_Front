@@ -33,7 +33,11 @@
 
     <div>
       <label>Semestre :</label>
-      <input formControlName="semestre_id" type="number">
+      <select formControlName="semestre_id">
+        <option *ngFor="let semestre of semestres" [value]="semestre.id">
+          {{ semestre.nom}}
+        </option>
+      </select>
       <div *ngIf="saeForm.get('semestre_id')?.invalid && saeForm.get('semestre_id')?.touched">
         <small>Veuillez entrer un ID valide</small>
       </div>
