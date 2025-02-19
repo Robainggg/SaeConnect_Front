@@ -3,6 +3,8 @@ import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/
 import {UserServiceService} from "../services/user-service.service";
 import {NgForOf, NgIf} from "@angular/common";
 import {SemestreService} from "../services/semestre.service";
+import {SaeService} from "../services/sae.service";
+
 
 
 @Component({
@@ -21,7 +23,7 @@ export class CreerSaeComponent implements OnInit {
   responsables :any;
   semestres: any;
 
-  constructor(private fb: FormBuilder, private userService: UserServiceService, private semestreService: SemestreService) {
+  constructor(private fb: FormBuilder, private userService: UserServiceService, private semestreService: SemestreService, private saeService: SaeService) {
     this.saeForm = this.fb.group({
       nom: ['', Validators.required],
       sujet: ['', Validators.required],
@@ -38,7 +40,15 @@ export class CreerSaeComponent implements OnInit {
 
   onSubmit(): void {
     if (this.saeForm.valid) {
-      console.log('Données du formulaire:', this.saeForm.value);
+
+      this.saeService.createSae(this.saeForm.value).subscribe({
+        next: (data: any) => {
+          console.log(data)
+        },
+        error : (error) => {
+          console.error('Erreur lors de la récupération des données :', error);
+        }
+      })
     } else {
       console.log('Formulaire invalide');
     }
