@@ -1,1 +1,33 @@
-<p>sae-dashboard works!</p>
+<div class="sae-container">
+  <div class="header">
+    <button class="add-button" routerLink="/creerSae">Ajouter SAE</button>
+    <div class="search-container">
+      <input type="text" [(ngModel)]="searchQuery" (input)="onSearch()" placeholder="Rechercher une SAE" class="search-input">
+    </div>
+  </div>
+
+  <div *ngIf="saes.length === 0" class="empty-message">
+    <p>Aucune SAE disponible. Ajoutez-en une !</p>
+  </div>
+  <div class="sae-list" *ngIf="saes.length > 0">
+    <div class="sae-card" *ngFor="let sae of paginatedSaes">
+      <h2>{{ sae.nom }}</h2>
+      <p class="sujet">{{ sae.sujet }}</p>
+      <div class="details">
+        <span><strong>Responsable:</strong> {{ sae.responsable_id }}</span>
+        <span><strong>Semestre:</strong> {{ sae.semestre_id }}</span>
+      </div>
+    </div>
+  </div>
+  <div class="pagination" *ngIf="saes.length > 0">
+    <button (click)="goToPage(currentPage - 1)" [disabled]="currentPage === 1" class="pagination-button">
+      Précédent
+    </button>
+
+    <span class="pagination-text">Page {{ currentPage }} sur {{ totalPages }}</span>
+
+    <button (click)="goToPage(currentPage + 1)" [disabled]="currentPage === totalPages" class="pagination-button">
+      Suivant
+    </button>
+  </div>
+</div>

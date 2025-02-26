@@ -4,6 +4,7 @@ import {UserServiceService} from "../services/user-service.service";
 import {NgForOf, NgIf} from "@angular/common";
 import {SemestreService} from "../services/semestre.service";
 import {SaeService} from "../services/sae.service";
+import {RouterLink} from "@angular/router";
 
 
 
@@ -12,7 +13,8 @@ import {SaeService} from "../services/sae.service";
   imports: [
     ReactiveFormsModule,
     NgForOf,
-    NgIf
+    NgIf,
+    RouterLink
   ],
   templateUrl: './creer-sae.component.html',
   standalone: true,

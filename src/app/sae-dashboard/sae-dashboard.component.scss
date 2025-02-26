@@ -1,0 +1,141 @@
+.sae-container {
+  width: 60%;
+  margin: 80px auto 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.add-button {
+  background-color: #f39c12;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-right: 20px;
+}
+
+.add-button:hover {
+  background-color: #e67e22;
+  transform: scale(1.05);
+}
+
+.sae-list {
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.sae-card {
+  background: #444;
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.sae-card h2 {
+  margin: 0 0 10px;
+  color: #f39c12;
+}
+
+.sujet {
+  font-size: 14px;
+  color: #ccc;
+  margin-bottom: 10px;
+}
+
+.details {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #bbb;
+}
+
+.empty-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  background-color: #444;
+  color: #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.pagination-button {
+  background-color: #f39c12;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.pagination-button:hover {
+  background-color: #e67e22;
+  transform: scale(1.05);
+}
+
+.pagination-button[disabled] {
+  background-color: #bbb;
+  cursor: not-allowed;
+}
+
+.pagination-text {
+  align-self: center;
+  font-size: 16px;
+  color: #ccc;
+}
+
+.search-container {
+  flex-grow: 1;
+  display: flex;
+  justify-content: flex-start;
+  max-width: calc(100% - 180px);
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background: #444;
+  color: white;
+  font-size: 14px;
+  transition: background 0.3s ease;
+}
+
+.search-input:focus {
+  outline: none;
+  background: #555;
+}
+
+.search-input::placeholder {
+  color: #bbb;
+}
+
+.search-input:hover {
+  background: #555;
+}
