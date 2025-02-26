@@ -3,6 +3,7 @@ import {SaeService} from "../services/sae.service";
 import { CommonModule } from '@angular/common';
 import {RouterModule, RouterLink} from "@angular/router";
 import {FormsModule} from "@angular/forms";
+import {SaeInterface} from "../interfaces/sae.interface";
 
 @Component({
   selector: 'app-sae-dashboard',
@@ -13,31 +14,34 @@ import {FormsModule} from "@angular/forms";
 })
 export class SaeDashboardComponent {
 
-  saes : any;
+  saes : SaeInterface[] = [];
   itemsPerPage = 4;
   currentPage = 1;
 
   searchQuery: string = '';
   filteredSaes: any[] = [];
-  pageSize: number = 5;
   totalPages: number = 0;
 
   constructor(private saeService: SaeService) {
-    saeService.getSaes().subscribe(data => {
+
+  }
+
+  ngOnInit() {
+    this.saeService.getSaes().subscribe(data => {
       this.saes = data
+      this.filteredSaes = [...this.saes];
+      this.updatePagination();
     });
     console.log(this.saes)
-    this.filteredSaes = [...this.saes];
-    this.updatePagination();
   }
 
   updatePagination() {
-    this.filteredSaes = this.saes.filter((sae: { nom: string; sujet: string; }) =>
+    this.filteredSaes = this.saes.filter((sae: SaeInterface) =>
       sae.nom.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
       sae.sujet.toLowerCase().includes(this.searchQuery.toLowerCase())
     );
 
-    this.totalPages = Math.ceil(this.filteredSaes.length / this.pageSize);
+    this.totalPages = Math.ceil(this.filteredSaes.length / this.itemsPerPage);
     this.goToPage(1);
   }
 

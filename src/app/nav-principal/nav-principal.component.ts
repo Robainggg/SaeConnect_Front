@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
-import {RouterModule, RouterLink, Router} from "@angular/router";
+import {RouterLink, Router} from "@angular/router";
 
 @Component({
   selector: 'app-nav-principal',
   standalone: true,
   imports: [
-    RouterModule,
     RouterLink
   ],
   templateUrl: './nav-principal.component.html',

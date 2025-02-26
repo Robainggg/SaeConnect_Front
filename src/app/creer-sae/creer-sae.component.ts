@@ -4,7 +4,7 @@ import {UserServiceService} from "../services/user-service.service";
 import {NgForOf, NgIf} from "@angular/common";
 import {SemestreService} from "../services/semestre.service";
 import {SaeService} from "../services/sae.service";
-import {RouterLink} from "@angular/router";
+import {Router, RouterLink} from "@angular/router";
 
 
 
@@ -25,7 +25,7 @@ export class CreerSaeComponent implements OnInit {
   responsables :any;
   semestres: any;
 
-  constructor(private fb: FormBuilder, private userService: UserServiceService, private semestreService: SemestreService, private saeService: SaeService) {
+  constructor(private fb: FormBuilder, private userService: UserServiceService, private semestreService: SemestreService, private saeService: SaeService, private router: Router) {
     this.saeForm = this.fb.group({
       nom: ['', Validators.required],
       sujet: ['', Validators.required],
@@ -51,6 +51,7 @@ export class CreerSaeComponent implements OnInit {
           console.error('Erreur lors de la récupération des données :', error);
         }
       })
+      this.router.navigate(['saeDashboard'])
     } else {
       console.log('Formulaire invalide');
     }
