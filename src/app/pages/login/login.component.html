@@ -1,0 +1,17 @@
+
+<main>
+  <div class="login-container">
+    <h2 class="login-title">Connexion</h2>
+    <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <label for="alias" class="login-label">
+        Alias <span class="tooltip">? <span class="tooltip-text">Votre alias est composé de l'initiale de votre prénom suivie de votre nom de famille, en minuscules.</span></span>
+      </label>
+      <input formControlName="alias" type="text" id="alias" name="alias" class="login-input" placeholder="Entrez votre alias" required>
+
+      <label for="password" class="login-label">Mot de passe</label>
+      <input formControlName="password" type="password" id="password" name="password" class="login-input" placeholder="Entrez votre mot de passe" required>
+
+      <button type="submit" class="login-button">Se connecter</button>
+    </form>
+  </div>
+</main>

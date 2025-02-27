@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
-import {UserServiceService} from "../services/user-service.service";
+import {UserServiceService} from "../../services/user-service.service";
 import {NgForOf, NgIf} from "@angular/common";
-import {SemestreService} from "../services/semestre.service";
-import {SaeService} from "../services/sae.service";
+import {SemestreService} from "../../services/semestre.service";
+import {SaeService} from "../../services/sae.service";
 import {Router, RouterLink} from "@angular/router";
 
 

@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import {SaeService} from "../services/sae.service";
+import {SaeService} from "../../services/sae.service";
 import { CommonModule } from '@angular/common';
 import {RouterModule, RouterLink} from "@angular/router";
 import {FormsModule} from "@angular/forms";
-import {SaeInterface} from "../interfaces/sae.interface";
+import {SaeInterface} from "../../interfaces/sae.interface";
 
 @Component({
   selector: 'app-sae-dashboard',

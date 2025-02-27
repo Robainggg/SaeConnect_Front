@@ -1,0 +1,90 @@
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #333;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+.login-container {
+  background-color: #444;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 300px;
+}
+.login-title {
+  color: #f39c12;
+  margin-bottom: 15px;
+  text-align: center;
+}
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+.login-label {
+  text-align: left;
+  color: white;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+.tooltip {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  font-weight: bold;
+  color: #ff0;
+}
+.tooltip-text {
+  visibility: hidden;
+  width: 240px;
+  background-color: #ff0;
+  color: #000;
+  text-align: center;
+  padding: 5px;
+  border-radius: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-weight: bold;
+}
+.tooltip:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+.login-input {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0 15px;
+  border: none;
+  border-radius: 5px;
+  background: #555;
+  color: white;
+  font-size: 14px;
+  transition: background 0.3s ease;
+}
+.login-input:focus {
+  outline: none;
+  background: #666;
+}
+.login-button {
+  background-color: #f39c12;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 10px;
+}
+.login-button:hover {
+  background-color: #e67e22;
+  transform: scale(1.05);
+}
