@@ -22,11 +22,28 @@ export class SaeDashboardComponent {
   filteredSaes: any[] = [];
   totalPages: number = 0;
 
-  constructor(private saeService: SaeService) {
-
-  }
+  constructor(private saeService: SaeService) {}
 
   ngOnInit() {
+    const roleId = localStorage.getItem('roleId')
+    switch(roleId) {
+      case '3':
+        this.saeService.getSaes().subscribe(data => {
+          this.saes = data
+          this.filteredSaes = [...this.saes];
+          this.updatePagination();
+        });
+        break;
+      default:
+        const alias: string | null= localStorage.getItem('alias')
+        if(alias) {
+          this.saeService.getSaesByAlias(alias).subscribe(data => {
+            this.saes = data
+            this.filteredSaes = [...this.saes]
+            this.updatePagination()
+          })
+        }
+    }
     this.saeService.getSaes().subscribe(data => {
       this.saes = data
       this.filteredSaes = [...this.saes];

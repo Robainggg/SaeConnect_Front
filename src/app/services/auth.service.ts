@@ -10,15 +10,26 @@ import {LoginResponse} from "../interfaces/login-response";
 export class AuthService {
   private apiUrl: string = "http://localhost:8080/auth";
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router) {
+    const expirationToken = localStorage.getItem('expiration_token')
+    if (expirationToken) {
+      this.planAutoLogout(parseInt(expirationToken, 10))
+    }
+  }
 
   login(credentials: Credentials) {
     return this.http.post<LoginResponse>(`${this.apiUrl}/login`, credentials)
       .subscribe(response => {
+        const expirationToken = Date.now() + response.expires_in
+        localStorage.setItem('userId', String(response.userId))
+        localStorage.setItem('alias', response.alias)
         localStorage.setItem('token', response.token);
         localStorage.setItem('firstname', response.firstname);
         localStorage.setItem('lastname', response.lastname);
         localStorage.setItem('roleId', String(response.roleId));
+        localStorage.setItem('expiration_token', expirationToken.toString())
+
+        this.planAutoLogout(expirationToken);
         this.redirectUser(response.roleId);
       })
   }
@@ -26,6 +37,14 @@ export class AuthService {
   logout() {
     localStorage.removeItem('token');
     this.router.navigate(['']);
+  }
+
+  private planAutoLogout(expirationToken: number) {
+    const tempsRestant = expirationToken - Date.now();
+    console.log(`Vous serez déconnectés dans ${tempsRestant / 1000} secondes`)
+    setTimeout(() => {
+      this.logout()
+    }, tempsRestant)
   }
 
   getToken(): string | null {

@@ -1,42 +1,21 @@
-form {
-  background-color: #333;
-  color: white;
-  padding: 20px;
-  border-radius: 8px;
-  width: 50%;
+.sae-container {
+  width: 60%;
   margin: 80px auto 20px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-form div {
-  margin-bottom: 15px;
-}
-
-label {
-  display: block;
-  font-weight: bold;
-  margin-bottom: 5px;
-}
-
-input, textarea {
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
   width: 100%;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  background: #444;
-  color: white;
 }
 
-input:focus, textarea:focus {
-  outline: none;
-  background: #555;
+h2 {
+  font-size: 24px;
 }
 
-small {
-  color: #e74c3c;
-}
-
-button {
+.back-button {
   background-color: #f39c12;
   color: white;
   padding: 10px 15px;
@@ -47,32 +26,80 @@ button {
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-button:disabled {
-  background-color: #777;
-  cursor: not-allowed;
-}
-
-button:hover:not(:disabled) {
+.back-button:hover {
   background-color: #e67e22;
   transform: scale(1.05);
 }
 
-button:active:not(:disabled) {
-  transform: scale(0.95);
+form {
+  background-color: #333;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-select {
+form div {
+  margin-bottom: 20px;
+}
+
+label {
+  font-size: 14px;
+  color: #ccc;
+  margin-bottom: 5px;
+  display: block;
+}
+
+input, select, textarea {
   width: 100%;
   padding: 10px;
-  border: none;
   border-radius: 5px;
   background: #444;
   color: white;
+  font-size: 14px;
+  border: none;
+  transition: background 0.3s ease;
 }
 
-select:focus {
+input:focus, select:focus, textarea:focus {
   outline: none;
   background: #555;
 }
 
+small {
+  color: #e74c3c;
+  font-size: 12px;
+  margin-top: 5px;
+  display: block;
+}
 
+textarea {
+  resize: vertical;
+  height: 120px;
+}
+
+button[type="submit"] {
+  background-color: #f39c12;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  width: 100%;
+  margin-top: 20px;
+}
+
+button[type="submit"]:hover {
+  background-color: #e67e22;
+  transform: scale(1.05);
+}
+
+button[disabled] {
+  background-color: #bbb;
+  cursor: not-allowed;
+}
+
+button[disabled]:hover {
+  transform: none;
+}

@@ -15,6 +15,10 @@ export class SaeService {
     return this.http.get(`${this.apiUrl}`)
   }
 
+  getSaesByAlias(alias: string): Observable<any>{
+    return this.http.get(`${this.apiUrl}/${alias}`)
+  }
+
   createSae(body: any): Observable<any>{
     return this.http.post(`${this.apiUrl}`, body)
   }

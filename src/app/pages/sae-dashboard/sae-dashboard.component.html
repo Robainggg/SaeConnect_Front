@@ -1,6 +1,6 @@
 <div class="sae-container">
   <div class="header">
-    <button class="add-button" routerLink="/creerSae">Ajouter SAE</button>
+    <button class="add-button" [routerLink]="['/accueil/creerSae']">Ajouter SAE</button>
     <div class="search-container">
       <input type="text" [(ngModel)]="searchQuery" (input)="onSearch()" placeholder="Rechercher une SAE" class="search-input">
     </div>
