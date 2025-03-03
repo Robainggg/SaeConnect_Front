@@ -17,7 +17,7 @@ export const routes: Routes = [
     {path: 'admin', component: AdminDashboardComponent, canActivate: [RoleGuard], data: {rolesAutorises:['3']}},
     {path: 'respo', component: RespoDashboardComponent, canActivate: [RoleGuard], data: {rolesAutorises:['2']}},
     {path: 'etud', component: EtudDashboardComponent, canActivate: [RoleGuard], data: {rolesAutorises:['1']}},
-    { path: 'saeDashboard', component: SaeDashboardComponent},
+    { path: 'saeDashboard', component: SaeDashboardComponent, canActivate: [RoleGuard], data:{rolesAutorises: ['3']}},
     { path: 'creerSae', component: CreerSaeComponent}
   ]},
   {path: '**', redirectTo: 'login'}
