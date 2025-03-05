@@ -1,0 +1,10 @@
+<h2>Détails de la soutenance</h2>
+<p *ngIf="soutenance">
+    <strong>Titre :</strong> {{ soutenance?.titre }} <br>
+    <strong>Date :</strong> {{ soutenance?.date }} <br>
+    <strong>Heure :</strong> {{ soutenance?.heure }} <br>
+    <strong>Lieu :</strong> {{ soutenance?.lieu }} <br>
+    <strong>SAE :</strong> {{ soutenance?.sae }} <br>
+    
+</p>
+<a routerLink="/soutenance">Retour à la liste</a>
