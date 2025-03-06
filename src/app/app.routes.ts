@@ -9,6 +9,8 @@ import {EtudDashboardComponent} from "./pages/etud-dashboard/etud-dashboard.comp
 import {RoleGuard} from "./guard/role.guard";
 import {AuthGuard} from "./guard/auth.guard";
 import {SaeDetailComponent} from "./pages/sae-detail/sae-detail.component";
+import { ListComponent } from './soutenance/list/list.component';
+import { DetailComponent } from './soutenance/detail/detail.component';
 
 export const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -23,4 +25,6 @@ export const routes: Routes = [
     {path: 'detailSae/:idSae', component: SaeDetailComponent},
   ]},
   {path: '**', redirectTo: 'login'},
+  { path: 'soutenance', component: ListComponent },
+  { path: 'soutenance/:id', component: DetailComponent },
 ];
