@@ -8,6 +8,7 @@ import {RespoDashboardComponent} from "./pages/respo-dashboard/respo-dashboard.c
 import {EtudDashboardComponent} from "./pages/etud-dashboard/etud-dashboard.component";
 import {RoleGuard} from "./guard/role.guard";
 import {AuthGuard} from "./guard/auth.guard";
+import {SaeDetailComponent} from "./pages/sae-detail/sae-detail.component";
 
 export const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -18,7 +19,8 @@ export const routes: Routes = [
     {path: 'respo', component: RespoDashboardComponent, canActivate: [RoleGuard], data: {rolesAutorises:['2']}},
     {path: 'etud', component: EtudDashboardComponent, canActivate: [RoleGuard], data: {rolesAutorises:['1']}},
     { path: 'saeDashboard', component: SaeDashboardComponent, canActivate: [RoleGuard], data:{rolesAutorises: ['3']}},
-    { path: 'creerSae', component: CreerSaeComponent}
+    { path: 'creerSae', component: CreerSaeComponent, canActivate: [RoleGuard], data:{rolesAutorises: ['2', '3']}},
+    {path: 'detailSae/:idSae', component: SaeDetailComponent},
   ]},
-  {path: '**', redirectTo: 'login'}
+  {path: '**', redirectTo: 'login'},
 ];

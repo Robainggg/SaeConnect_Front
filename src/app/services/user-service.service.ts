@@ -15,6 +15,10 @@ export class UserServiceService {
     return this.http.get(`${this.apiUrl}`)
   }
 
+  getUserById(id: number): Observable<any>{
+    return this.http.get(`${this.apiUrl}/${id}`)
+  }
+
   getEtudiants(): Observable<any>{
     return this.http.get(`${this.apiUrl}/etudiants`)
   }

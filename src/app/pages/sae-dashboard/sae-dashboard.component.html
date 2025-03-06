@@ -11,7 +11,7 @@
   </div>
   <div class="sae-list" *ngIf="saes.length > 0">
     <div class="sae-card" *ngFor="let sae of paginatedSaes">
-      <h2>{{ sae.nom }}</h2>
+      <a [routerLink]="['/accueil/detailSae', sae.id]" class="sae-link">{{ sae.nom }}</a>
       <p class="sujet">{{ sae.sujet }}</p>
       <div class="details">
         <span><strong>Responsable:</strong> {{ sae.responsable_id }}</span>
