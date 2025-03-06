@@ -5,6 +5,6 @@
     <strong>Heure :</strong> {{ soutenance?.heure }} <br>
     <strong>Lieu :</strong> {{ soutenance?.lieu }} <br>
     <strong>SAE :</strong> {{ soutenance?.sae }} <br>
-    
+
 </p>
-<a routerLink="/soutenance">Retour à la liste</a>
+<a [routerLink]="['/accueil/soutenance']">Retour à la liste</a>

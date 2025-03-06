@@ -4,14 +4,12 @@ import { ReactiveFormsModule } from '@angular/forms'; // Import du module
 import { AppComponent } from './app.component';
 import { CreerSaeComponent } from './creer-sae/creer-sae.component'; // Import du composant
 import { RouterModule } from '@angular/router';
-import { ListComponent } from './soutenance/list/list.component';
-import { DetailComponent } from './soutenance/detail/detail.component';
+import { ListComponent } from './pages/soutenance/list/list.component';
+import { DetailComponent } from './pages/soutenance/detail/detail.component';
 import { routes } from './app.routes';
 
 @NgModule({
   declarations: [
-    ListComponent,
-    DetailComponent
   ],
   imports: [
     BrowserModule,
@@ -22,6 +20,6 @@ import { routes } from './app.routes';
     RouterModule.forRoot(routes)
   ],
   providers: [],
-  bootstrap: [ListComponent]
+  bootstrap: []
 })
 export class AppModule { }

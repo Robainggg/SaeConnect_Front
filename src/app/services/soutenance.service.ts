@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Soutenance } from './soutenance.model';
+import { Soutenance } from '../interfaces/soutenance.model';
 import { Observable, of } from 'rxjs';
 
 @Injectable({
@@ -11,11 +11,11 @@ export class SoutenanceService {
     { id: 2, titre: 'Soutenance IA', date: '2025-03-12', heure: '14:00', lieu: 'Salle 202', sae: 'Machine Learning' },
   ];
 
-  getSoutenances(): Observable<Soutenance[]> {
-    return of(this.soutenances);
+  getSoutenances(): Soutenance[] {
+    return this.soutenances;
   }
 
-  getSoutenanceById(id: number): Observable<Soutenance | undefined> {
-    return of(this.soutenances.find(s => s.id === id));
+  getSoutenanceById(id: number): Soutenance | undefined{
+    return this.soutenances.find(s => s.id === id);
   }
 }
